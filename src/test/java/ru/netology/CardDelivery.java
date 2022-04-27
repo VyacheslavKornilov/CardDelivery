@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 
-public class cardDelivery {
+public class CardDelivery {
 
     @Test
     public void cardDeliveryOrderSuccessful() {
@@ -25,7 +25,6 @@ public class cardDelivery {
         $("[data-test-id=phone] input").setValue("+79858883344");
         $("[data-test-id=agreement]").click();
         $x("//*[text()=\"Забронировать\"]").click();
-        $("[data-test-id=notification]").shouldHave(Condition.text("Успешно!"), Duration.ofSeconds(15));
-
+        $("[data-test-id=notification]").shouldHave(Condition.text("Встреча успешно забронирована на " + verificationDate), Duration.ofSeconds(15));
     }
 }
